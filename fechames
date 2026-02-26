@@ -1,0 +1,340 @@
+<!-- OPERAÇÃO FECHA MÊS – LINDA MOÇA EXCLUSIVE -->
+<style>
+  /* ====== RESET BÁSICO DA SESSÃO (ISOLADO) ====== */
+  #lmx-op-fecha-mes * {
+    box-sizing: border-box;
+  }
+
+  /* ====== CONTAINER PRINCIPAL ====== */
+  #lmx-op-fecha-mes {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #ff4b92 0, #1a0210 45%, #050007 100%);
+    color: #ffffff;
+    padding: 60px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lmx-op-wrapper {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 18px;
+    padding: 32px 20px 28px;
+    background: rgba(5, 0, 7, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Efeito glow de fundo */
+  .lmx-op-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top, rgba(255, 75, 146, 0.25), transparent 60%);
+    opacity: 0.85;
+    z-index: -1;
+  }
+
+  /* ====== BADGE SUPERIOR ====== */
+  .lmx-op-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    margin-bottom: 14px;
+  }
+
+  .lmx-op-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff4b92;
+    box-shadow: 0 0 10px rgba(255, 75, 146, 0.9);
+  }
+
+  /* ====== TÍTULOS ====== */
+  .lmx-op-title-main {
+    font-size: 26px;
+    line-height: 1.15;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .lmx-op-title-main span {
+    display: inline-block;
+  }
+
+  .lmx-op-title-main strong {
+    color: #ff4b92;
+  }
+
+  .lmx-op-sub-1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffe0f0;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .lmx-op-sub-2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .lmx-op-sub-2 strong {
+    color: #ffeb99;
+  }
+
+  /* ====== TEXTO DE BLOQUEIO ====== */
+  .lmx-op-locked {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #ffb7d4;
+    margin-bottom: 14px;
+  }
+
+  .lmx-op-text {
+    font-size: 14px;
+    color: #f5f5f5;
+    margin-bottom: 18px;
+  }
+
+  .lmx-op-text strong {
+    color: #ffebf7;
+  }
+
+  /* ====== LISTA DE BENEFÍCIOS ====== */
+  .lmx-op-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .lmx-op-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .lmx-op-list-bullet {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .lmx-op-list-text {
+    color: #f7f7f7;
+  }
+
+  .lmx-op-list-text strong {
+    color: #ffeb99;
+  }
+
+  /* ====== BLOCO DE ALERTA ====== */
+  .lmx-op-alert {
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 12px;
+    padding: 10px 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.38);
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .lmx-op-alert-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    margin-bottom: 4px;
+    color: #ffb7d4;
+  }
+
+  .lmx-op-alert p {
+    margin: 2px 0;
+    color: #f1f1f1;
+  }
+
+  /* ====== CTA PRINCIPAL ====== */
+  .lmx-op-cta-wrapper {
+    margin-bottom: 12px;
+  }
+
+  .lmx-op-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: linear-gradient(135deg, #ff4b92, #ffb7d4);
+    color: #1a0210;
+    box-shadow: 0 12px 30px rgba(255, 75, 146, 0.5);
+    border: none;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .lmx-op-cta-button span {
+    display: inline-block;
+  }
+
+  .lmx-op-cta-button-icon {
+    font-size: 16px;
+    margin-top: 1px;
+  }
+
+  .lmx-op-cta-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 16px 40px rgba(255, 75, 146, 0.7);
+  }
+
+  .lmx-op-cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 22px rgba(255, 75, 146, 0.45);
+  }
+
+  /* Mini texto embaixo do botão */
+  .lmx-op-mini {
+    font-size: 11px;
+    color: #d6d6d6;
+  }
+
+  /* ====== RESPONSIVO ====== */
+  @media (max-width: 480px) {
+    #lmx-op-fecha-mes {
+      padding: 40px 10px;
+    }
+
+    .lmx-op-wrapper {
+      padding: 24px 16px 22px;
+    }
+
+    .lmx-op-title-main {
+      font-size: 22px;
+    }
+
+    .lmx-op-sub-1 {
+      font-size: 16px;
+    }
+
+    .lmx-op-sub-2 {
+      font-size: 14px;
+    }
+
+    .lmx-op-list {
+      font-size: 13px;
+    }
+
+    .lmx-op-cta-button {
+      width: 100%;
+    }
+  }
+</style>
+
+<section id="lmx-op-fecha-mes">
+  <div class="lmx-op-wrapper">
+
+    <!-- BADGE -->
+    <div class="lmx-op-badge">
+      <span class="lmx-op-badge-dot"></span>
+      <span>ACESSO RESTRITO · GRUPO VIP</span>
+    </div>
+
+    <!-- TÍTULOS -->
+    <h1 class="lmx-op-title-main">
+      <span>SITE <strong>TRANCADO</strong></span>
+    </h1>
+    <div class="lmx-op-sub-1">OPERAÇÃO FECHA MÊS</div>
+    <div class="lmx-op-sub-2">TUDO COM ATÉ <strong>70% OFF</strong></div>
+
+    <!-- TEXTO PRINCIPAL -->
+    <div class="lmx-op-locked">ACESSO BLOQUEADO TEMPORARIAMENTE</div>
+    <p class="lmx-op-text">
+      Essa condição NÃO vai para o público geral. <strong>Apenas o Grupo VIP</strong> vai receber o
+      link secreto da operação de fechamento do mês da Linda Moça Exclusive.
+    </p>
+
+    <!-- LISTA DE BENEFÍCIOS -->
+    <ul class="lmx-op-list">
+      <li class="lmx-op-list-item">
+        <div class="lmx-op-list-bullet">⚡</div>
+        <div class="lmx-op-list-text">
+          Peças com até <strong>70% OFF</strong> em seleção estratégica de looks.
+        </div>
+      </li>
+      <li class="lmx-op-list-item">
+        <div class="lmx-op-list-bullet">🖤</div>
+        <div class="lmx-op-list-text">
+          Vestidos, jeans, croppeds, conjuntos e muito mais, em <strong>quantidade limitada</strong>.
+        </div>
+      </li>
+      <li class="lmx-op-list-item">
+        <div class="lmx-op-list-bullet">💸</div>
+        <div class="lmx-op-list-text">
+          Condições agressivas para <strong>fechar o mês com força</strong> – sem repetir depois.
+        </div>
+      </li>
+    </ul>
+
+    <!-- BLOCO DE ALERTA -->
+    <div class="lmx-op-alert">
+      <div class="lmx-op-alert-title">ATENÇÃO</div>
+      <p>Quando a operação liberar, as peças podem esgotar em minutos.</p>
+      <p>A ação pode sair do ar sem aviso e <strong>não há garantia de voltar</strong>.</p>
+    </div>
+
+    <!-- CTA PRINCIPAL -->
+    <div class="lmx-op-cta-wrapper">
+      <!-- TROCAR O HREF PELO TEU LINK DO GRUPO VIP / WHATSAPP SE QUISER -->
+      <a
+        class="lmx-op-cta-button"
+        href="https://api.whatsapp.com/send?phone=5581988444219&text=Quero%20entrar%20no%20Grupo%20VIP%20da%20Opera%C3%A7%C3%A3o%20Fecha%20M%C3%AAs%21"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>QUERO ENTRAR NO GRUPO VIP AGORA</span>
+        <span class="lmx-op-cta-button-icon">💬</span>
+      </a>
+    </div>
+
+    <div class="lmx-op-mini">
+      Entre no grupo para receber o link secreto, horário de liberação e prioridade nas peças limitadas.
+    </div>
+  </div>
+</section>
